@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useHeroes } from "../context/herocontext";
-import "../dashboard/dashboards.css";
+import "./dashboard.css";
+
 
 export default function DashboardPage() {
   const {
