@@ -1,0 +1,110 @@
+
+.hero-form {
+  max-width: 520px;
+  margin: 40px auto;
+  padding: 32px;
+  background-color: #0f172a; 
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  color: #e5e7eb;
+}
+
+
+.hero-form h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.6rem;
+  color: #f8fafc;
+}
+
+
+.hero-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+
+.hero-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 6px;
+  color: #cbd5f5;
+}
+
+
+.hero-form input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  background-color: #020617;
+  color: #f1f5f9;
+  font-size: 0.95rem;
+}
+
+.hero-form input::placeholder {
+  color: #64748b;
+}
+
+.hero-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+
+.hero-form .full {
+  width: 100%;
+}
+
+
+.hero-form .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 12px;
+}
+
+
+.hero-form button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+
+.hero-form button[type="submit"] {
+  background-color: #22c55e;
+  color: #052e16;
+}
+
+.hero-form button[type="submit"]:hover {
+  background-color: #16a34a;
+}
+
+
+.hero-form .btn-back {
+  background-color: #334155;
+  color: #e5e7eb;
+}
+
+.hero-form .btn-back:hover {
+  background-color: #475569;
+}
+
+
+@media (max-width: 600px) {
+  .hero-form {
+    margin: 20px;
+    padding: 24px;
+  }
+
+  .hero-form .actions {
+    flex-direction: column;
+  }
+}
