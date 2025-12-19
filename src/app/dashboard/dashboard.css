@@ -1,0 +1,195 @@
+
+:root {
+  --bg-page: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-header: #f1f5f9;
+
+  --border: #e5e7eb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+
+  --warning: #facc15;
+  --warning-hover: #eab308;
+
+  --danger: #dc2626;
+  --danger-hover: #b91c1c;
+}
+
+
+.dashboard {
+  max-width: 1100px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+.dashboard h1 {
+  margin-bottom: 24px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+
+.dashboard > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 24px;
+  padding: 10px 18px;
+  background-color: var(--primary);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.dashboard > a:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+
+.dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard thead {
+  background-color: var(--bg-header);
+}
+
+.dashboard th,
+.dashboard td {
+  padding: 14px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.dashboard th {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.dashboard tbody tr {
+  transition: background 0.15s ease;
+}
+
+.dashboard tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+
+.dashboard img {
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.dashboard td:last-child {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+
+.dashboard button {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #e5e7eb;
+  color: var(--text-main);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.dashboard button:hover {
+  background-color: #d1d5db;
+}
+
+.dashboard button:active {
+  transform: scale(0.97);
+}
+
+.dashboard button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+.dashboard button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* =====================
+   Favorite Button
+===================== */
+.fav-btn {
+  background-color: var(--warning);
+  color: #78350f;
+}
+
+.fav-btn:hover {
+  background-color: var(--warning-hover);
+}
+
+.fav-btn.is-fav {
+  background-color: var(--danger);
+  color: #ffffff;
+}
+
+.fav-btn.is-fav:hover {
+  background-color: var(--danger-hover);
+}
+
+
+@media (max-width: 768px) {
+  .dashboard table,
+  .dashboard thead,
+  .dashboard tbody,
+  .dashboard th,
+  .dashboard td,
+  .dashboard tr {
+    display: block;
+  }
+
+  .dashboard thead {
+    display: none;
+  }
+
+  .dashboard tr {
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 14px;
+    background-color: var(--bg-card);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .dashboard td {
+    border: none;
+    padding: 6px 0;
+    font-size: 0.9rem;
+  }
+
+  .dashboard td:last-child {
+    margin-top: 10px;
+    justify-content: flex-start;
+  }
+}
