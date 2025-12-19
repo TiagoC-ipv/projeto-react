@@ -25,7 +25,6 @@ export default function HeroFormPage() {
     superpower: "",
   });
 
-  // Carregar dados em modo edição
   useEffect(() => {
     if (!idParam) return;
 
