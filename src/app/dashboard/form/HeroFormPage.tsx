@@ -25,6 +25,7 @@ export default function HeroFormPage() {
     superpower: "",
   });
 
+  // Carregar dados em modo edição
   useEffect(() => {
     if (!idParam) return;
 
@@ -50,12 +51,14 @@ export default function HeroFormPage() {
 
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     handleFormSubmit({
       id: hero.id,
-      name: hero.name,
-      image: hero.image,
-      superpower: hero.superpower,
+      name: hero.name.trim(),
+      image: hero.image.trim(),
+      superpower: hero.superpower.trim(),
     });
+
     router.push("/dashboard");
   };
 
@@ -64,7 +67,57 @@ export default function HeroFormPage() {
       <h1>{isEditMode ? "Editar Super-Herói" : "Adicionar Super-Herói"}</h1>
 
       <form onSubmit={onSubmit}>
-        {/* ... resto igual ... */}
+        <div>
+          <label>
+            Nome:
+            <input
+              type="text"
+              name="name"
+              value={hero.name}
+              onChange={handleChange}
+              required
+              placeholder="Ex: Batman"
+            />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Imagem (URL):
+            <input
+              type="text"
+              name="image"
+              value={hero.image}
+              onChange={handleChange}
+              required
+              placeholder="https://..."
+            />
+          </label>
+        </div>
+
+        <div className="full">
+          <label>
+            Superpoder:
+            <input
+              type="text"
+              name="superpower"
+              value={hero.superpower}
+              onChange={handleChange}
+              placeholder="Ex: Super força"
+            />
+          </label>
+        </div>
+
+        <div className="actions">
+          <button type="submit">Gravar</button>
+          <button
+            type="button"
+            onClick={() => router.push("/dashboard")}
+            className="btn-back"
+          >
+            Voltar
+          </button>
+        </div>
       </form>
     </main>
   );
