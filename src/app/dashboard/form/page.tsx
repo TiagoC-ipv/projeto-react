@@ -1,9 +1,11 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import React, { useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useHeroes } from "../../context/herocontext";
-import "./addstyle.css";
+import "../../dashboard/form/addstyle.css";
 
 type HeroFormState = {
   id?: number;
@@ -12,7 +14,7 @@ type HeroFormState = {
   superpower: string;
 };
 
-export default function HeroFormContent() {
+export default function HeroFormPage() {
   const { heroes, handleFormSubmit } = useHeroes();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -56,9 +58,6 @@ export default function HeroFormContent() {
       image: hero.image,
       superpower: hero.superpower,
     });
-  };
-
-  const handleBack = () => {
     router.push("/dashboard");
   };
 
@@ -110,7 +109,11 @@ export default function HeroFormContent() {
 
         <div className="actions">
           <button type="submit">Gravar</button>
-          <button type="button" onClick={handleBack} className="btn-back">
+          <button
+            type="button"
+            onClick={() => router.push("/dashboard")}
+            className="btn-back"
+          >
             Voltar
           </button>
         </div>
