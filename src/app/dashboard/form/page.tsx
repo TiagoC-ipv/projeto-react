@@ -1,53 +1,53 @@
-'use client';
- 
-import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useHeroes } from "../../context/herocontext";
-import "../../dashboard/form/addstyle.css";
+import "./addstyle.css";
+
 type HeroFormState = {
   id?: number;
   name: string;
   image: string;
   superpower: string;
 };
- 
-export default function HeroFormPage() {
+
+export default function HeroFormContent() {
   const { heroes, handleFormSubmit } = useHeroes();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const idParam = searchParams.get('id');
- 
+  const idParam = searchParams.get("id");
+
   const [hero, setHero] = useState<HeroFormState>({
     id: undefined,
-    name: '',
-    image: '',
-    superpower: '',
+    name: "",
+    image: "",
+    superpower: "",
   });
- 
-  
+
   useEffect(() => {
     if (!idParam) return;
- 
+
     const id = Number(idParam);
     const existing = heroes.find((h) => h.id === id);
- 
+
     if (existing) {
       setHero({
         id: existing.id,
         name: existing.name,
         image: existing.image,
-        superpower: existing.superpower ?? '',
+        superpower: existing.superpower ?? "",
       });
     }
   }, [idParam, heroes]);
- 
+
   const isEditMode = !!hero.id;
- 
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setHero((prev) => ({ ...prev, [name]: value }));
   };
- 
+
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     handleFormSubmit({
@@ -57,15 +57,15 @@ export default function HeroFormPage() {
       superpower: hero.superpower,
     });
   };
- 
+
   const handleBack = () => {
-    router.push('/dashboard');
+    router.push("/dashboard");
   };
- 
+
   return (
     <main className="hero-form">
-      <h1>{isEditMode ? 'Editar Super-Herói' : 'Adicionar Super-Herói'}</h1>
- 
+      <h1>{isEditMode ? "Editar Super-Herói" : "Adicionar Super-Herói"}</h1>
+
       <form onSubmit={onSubmit}>
         <div>
           <label>
@@ -80,7 +80,7 @@ export default function HeroFormPage() {
             />
           </label>
         </div>
- 
+
         <div>
           <label>
             Imagem (URL):
@@ -94,8 +94,7 @@ export default function HeroFormPage() {
             />
           </label>
         </div>
- 
-        
+
         <div className="full">
           <label>
             Superpoder:
@@ -108,8 +107,7 @@ export default function HeroFormPage() {
             />
           </label>
         </div>
- 
-        
+
         <div className="actions">
           <button type="submit">Gravar</button>
           <button type="button" onClick={handleBack} className="btn-back">
@@ -120,5 +118,3 @@ export default function HeroFormPage() {
     </main>
   );
 }
- 
- 
